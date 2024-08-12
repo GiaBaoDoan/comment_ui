@@ -21,7 +21,7 @@ const countReducer = (state: indexType, action: ActionCount): any => {
         return [d, getData[0]];
       }
     });
-    return results.filter((result) => result !== undefined)[0];
+    return results.filter((result) => result !== undefined)[0] as any;
   };
 
   const returnStateComment = () => {
@@ -40,7 +40,7 @@ const countReducer = (state: indexType, action: ActionCount): any => {
       if (cloneComments[index]) {
         cloneComments[index].score++;
       } else {
-        findInReplies()[1].score++;
+        findInReplies() && findInReplies()[1].score++;
       }
 
       return returnStateComment();
@@ -59,7 +59,7 @@ const countReducer = (state: indexType, action: ActionCount): any => {
       } else {
         const { replies } = findInReplies()[0];
         const { id } = findInReplies()[1];
-        const index = replies?.findIndex((rep) => rep.id === id) as number;
+        const index = replies?.findIndex((rep: any) => rep.id === id) as number;
         replies?.splice(index, 1);
       }
 
@@ -73,7 +73,7 @@ const countReducer = (state: indexType, action: ActionCount): any => {
       } else {
         const { replies } = findInReplies()[0];
         const { id } = findInReplies()[1];
-        const index = replies?.findIndex((rep) => rep.id === id) as number;
+        const index = replies?.findIndex((rep: any) => rep.id === id) as number;
         if (replies && replies[index]) {
           replies[index].content = payload.content || "";
         }
