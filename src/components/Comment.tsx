@@ -9,8 +9,8 @@ const Comment = ({ comment }: { comment: CommentType }) => {
       {check && (
         <div className="my-5 pl-10 max-sm:pl-0">
           <div className="border-l-2 flex-col flex gap-5 pl-10 max-sm:pl-3">
-            {comment.replies?.map((reply) => {
-              return <ModelComment comment={reply} />;
+            {comment.replies?.map((reply, index) => {
+              return <ModelComment key={index} comment={reply} />;
             })}
           </div>
         </div>

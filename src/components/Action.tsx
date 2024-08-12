@@ -1,4 +1,4 @@
-import { CommentType, typeDispatch } from "../index.ts";
+import { CommentType } from "../index.ts";
 import { useStore } from "../hook/useStore";
 import Modal from "./Modal.tsx";
 import { useState } from "react";
